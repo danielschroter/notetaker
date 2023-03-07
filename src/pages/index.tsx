@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import { useSession } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Header } from "~/components/Header";
 
 import { api, type RouterOutputs } from "~/utils/api";
@@ -26,11 +26,15 @@ const Home: NextPage = () => {
           {sessionData?.user ? (
             <Content></Content>
           ) : (
-            <div className="flex flex-auto flex-col justify-center p-10">
-              <h1 className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-5xl font-extrabold text-transparent">
-                Welcome to Notetaker
-              </h1>
-              <h3 className="text-3xl">Please Log In</h3>
+            <div className="flex flex-auto flex-col justify-center px-8">
+              <div className="rounded-2xl border border-pink-600 p-12 shadow-2xl">
+                <h1 className="tracking bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-5xl  font-extrabold text-transparent">
+                  Welcome to Notetaker
+                </h1>
+                <h3 className=" pt-2 text-3xl">
+                  Please <button onClick={() => void signIn()}>Log In </button>
+                </h3>
+              </div>
             </div>
           )}
         </div>
