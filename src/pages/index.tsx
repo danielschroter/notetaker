@@ -1,6 +1,5 @@
 import { type NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
 import { useSession } from "next-auth/react";
 import { Header } from "~/components/Header";
 
@@ -11,8 +10,6 @@ import { NoteEditor } from "~/components/NoteEditor";
 import { NoteCard } from "~/components/NoteCard";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
-
   return (
     <>
       <Head>
@@ -53,7 +50,7 @@ const Content: React.FC = () => {
 
   const createTopic = api.topic.create.useMutation({
     onSuccess: () => {
-      refetchTopics();
+      void refetchTopics();
     },
   });
 
@@ -82,7 +79,7 @@ const Content: React.FC = () => {
       <div className="px-2">
         <ul className="bg-base menu rounded-box bg-base-100 p-2">
           {topics?.map((topic) => (
-            <li>
+            <li key={topic.id}>
               <a
                 href="#"
                 onClick={(e) => {
