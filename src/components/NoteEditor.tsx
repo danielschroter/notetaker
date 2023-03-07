@@ -45,7 +45,7 @@ export const NoteEditor = ({
               setCode("");
               setTitle("");
             }}
-            className="btn-secondary btn-sm btn"
+            className="btn-primary btn-sm btn"
           >
             Save
           </button>

@@ -126,7 +126,7 @@ const Content: React.FC = () => {
       </div>
       <div className="col-span-3">
         <div className="mx-5 mt-5">
-          <h2 className="text-lg text-white">Your Notes</h2>
+          <h2 className="text-lg text-white">{selectedTopic?.title}</h2>
           <div>
             {notes?.map((note) => (
               <div key={note.id} className="mt-5">

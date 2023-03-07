@@ -25,16 +25,16 @@ export const NoteCard = ({
           onClick={() => setIsExpanded(!isExpanded)}
         >
           <div className="collapse-title">{note.title}</div>
-          <div className="collapes-content">
+          <div className="collapse-content">
             <article className="prose lg:prose-xl">
               <ReactMarkdown>{note.content}</ReactMarkdown>
             </article>
+            <div className="card-actions justify-end">
+              <button className="btn-error btn-sm btn" onClick={onDelete}>
+                delete
+              </button>
+            </div>
           </div>
-        </div>
-        <div className="card-actions  justify-end">
-          <button className="btn-warning btn-sm btn" onClick={onDelete}>
-            delete
-          </button>
         </div>
       </div>
     </div>
