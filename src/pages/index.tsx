@@ -95,25 +95,26 @@ const Content: React.FC = () => {
     <div className="mx-5 mt-5 grid grid-cols-4 ">
       <div className="mx-5 px-2 pt-5">
         <h2 className="text-white">Your Topics</h2>
-        <ul className="menu rounded-box mt-2 bg-base-100">
+        <ul className="mt-2 bg-base-100">
           {topics?.map((topic) => (
-            <li key={topic.id}>
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  setSelectedTopic(topic);
-                }}
-              >
-                {topic.title}
-              </a>
+            <li
+              key={topic.id}
+              className={`p-2 hover:cursor-pointer hover:rounded-lg hover:bg-base-200 ${
+                selectedTopic?.id == topic.id ? "rounded-lg bg-base-200" : ""
+              }`}
+              onClick={(e) => {
+                e.preventDefault();
+                setSelectedTopic(topic);
+              }}
+            >
+              <span className="break-words">{topic.title}</span>
             </li>
           ))}
         </ul>
         <input
           type="text"
           placeholder="New Topic"
-          className="input-bordered input input-sm w-full"
+          className="input-bordered input input-sm mt-2 w-full border-pink-600"
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               createTopic.mutate({
