@@ -4,9 +4,17 @@ export const Header = () => {
   const { data: sessionData } = useSession();
 
   return (
-    <div className="t-5 navbar bg-primary text-primary-content">
-      <div className="flex-1 pl-5 text-3xl font-bold">
-        {sessionData?.user?.name ? `Notes for ${sessionData?.user.name}` : ""}
+    <div className="t-5 navbar bg-transparent tracking-widest text-primary-content shadow-xl">
+      <div className="flex-1 pl-5 text-xl font-bold">
+        {sessionData?.user?.name ? (
+          <span className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent">
+            Notes for {sessionData?.user.name}
+          </span>
+        ) : (
+          <span className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent">
+            Notetaker
+          </span>
+        )}
       </div>
       <div className="flex-none gap-2">
         <div className="dropdown-end dropdown">
