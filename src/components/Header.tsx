@@ -1,4 +1,5 @@
 import { signIn, signOut, useSession } from "next-auth/react";
+import Link from "next/link";
 
 export const Header = () => {
   const { data: sessionData } = useSession();
@@ -7,13 +8,19 @@ export const Header = () => {
     <div className="t-5 navbar bg-transparent tracking-widest text-primary-content shadow-xl">
       <div className="flex-1 pl-5 text-xl font-bold">
         {sessionData?.user?.name ? (
-          <span className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent">
+          <Link
+            href={"/"}
+            className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent"
+          >
             Notes for {sessionData?.user.name}
-          </span>
+          </Link>
         ) : (
-          <span className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent">
+          <Link
+            href={"/"}
+            className="bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-transparent"
+          >
             Notetaker
-          </span>
+          </Link>
         )}
       </div>
       <div className="flex-none gap-2">
