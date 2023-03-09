@@ -27,7 +27,7 @@ const Home: NextPage = () => {
             <Content></Content>
           ) : (
             <div className="flex flex-auto flex-col justify-center px-8">
-              <div className="rounded-2xl border border-green-600 p-12 shadow-2xl">
+              <div className="rounded-2xl border border-pink-400 p-12 shadow-2xl">
                 <h1 className="tracking bg-gradient-to-br from-pink-400 to-red-600 bg-clip-text text-5xl  font-extrabold text-transparent">
                   Welcome to Notetaker
                 </h1>
